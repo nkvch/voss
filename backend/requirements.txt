@@ -1,0 +1,9 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+aiosqlite>=0.20.0
+python-multipart>=0.0.9
+sse-starlette>=2.0.0
+python-json-logger>=2.0.7
+pydantic-settings>=2.1.0
+mutagen>=1.47.0
+python-magic>=0.4.27
