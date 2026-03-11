@@ -28,6 +28,13 @@ services:
       start_period: 10s
     restart: unless-stopped
 
+  backend-test:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+      target: test
+    profiles: ["test"]
+
   frontend:
     build:
       context: ./frontend

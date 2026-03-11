@@ -6,10 +6,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libmagic1 curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
+COPY requirements.txt requirements-dev.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-# --- Runtime ---
+# --- Test (includes dev deps) ---
+FROM builder AS test
+
+RUN pip install --no-cache-dir -r requirements-dev.txt
+COPY . .
+
+# --- Runtime (production, no dev deps) ---
 FROM python:3.12-slim
 
 WORKDIR /app

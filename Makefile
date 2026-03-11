@@ -17,16 +17,16 @@ stop:
 
 ## Run all backend tests
 test:
-	docker compose run --rm backend pytest -v --tb=short
+	docker compose run --rm backend-test pytest -v --tb=short
 
 ## Run determinism test only
 test-determinism:
-	docker compose run --rm backend pytest tests/test_determinism.py -v
+	docker compose run --rm backend-test pytest tests/test_determinism.py -v
 
 ## Lint backend code
 lint:
-	docker compose run --rm backend ruff check app/ tests/
-	docker compose run --rm backend ruff format --check app/ tests/
+	docker compose run --rm backend-test ruff check app/ tests/
+	docker compose run --rm backend-test ruff format --check app/ tests/
 
 ## Build images without starting
 build:
