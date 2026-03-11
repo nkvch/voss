@@ -57,7 +57,7 @@ export function Dashboard({
                 : "text-text-muted hover:text-text-dim"
             }`}
           >
-            Uploads Over Time
+            Analytics
           </button>
         </div>
 
@@ -66,7 +66,7 @@ export function Dashboard({
         )}
         {tab === "chart" && (
           <Card>
-            <UploadsChart uploads={uploads} />
+            <UploadsChart uploads={uploads} stats={stats} />
           </Card>
         )}
       </div>

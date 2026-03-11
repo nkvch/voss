@@ -149,7 +149,7 @@ export function Recorder({
       </div>
 
       {uploadResult && (
-        <div className="space-y-3">
+        <div className="upload-entering space-y-3">
           <UploadStatus uploadId={uploadResult.upload_id} />
           <div className="flex justify-center">
             <button

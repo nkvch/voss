@@ -16,17 +16,19 @@ export function useRecorder() {
   const startRecording = useCallback(async () => {
     // Switch to recording UI instantly — before getUserMedia resolves
     setState("recording");
-    startTimeRef.current = Date.now();
     setDuration(0);
-    timerRef.current = setInterval(() => {
-      setDuration(Date.now() - startTimeRef.current);
-    }, 100);
 
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         audio: true,
       });
       setStream(mediaStream);
+
+      // Start timer only after mic permission is granted
+      startTimeRef.current = Date.now();
+      timerRef.current = setInterval(() => {
+        setDuration(Date.now() - startTimeRef.current);
+      }, 100);
 
       let mimeType = "audio/webm;codecs=opus";
       if (!MediaRecorder.isTypeSupported(mimeType)) {

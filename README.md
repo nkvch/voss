@@ -32,15 +32,11 @@ A voice capture and processing platform. Record audio from the browser, upload i
 ## Quick Start
 
 ```bash
-# Clone and start
-cp .env.example .env
 make start
-
-# Open in browser
-open http://localhost
+# Open http://localhost
 ```
 
-That's it. `docker compose up` builds and starts all 3 services. The backend health check ensures everything is ready before nginx starts routing traffic.
+That's it. One command builds and starts all 3 services. The backend health check ensures everything is ready before nginx starts routing traffic.
 
 ## Available Commands
 

@@ -6,8 +6,10 @@ dev:
 
 ## Start all services (background)
 start:
-	cp -n .env.example .env 2>/dev/null || true
-	docker compose up --build -d
+	@docker compose up --build -d
+	@echo ""
+	@echo "  ✦ V.O.S.S. is running → http://localhost"
+	@echo ""
 
 ## Stop all services
 stop:

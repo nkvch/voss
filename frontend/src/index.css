@@ -236,6 +236,27 @@ body {
   animation: toast-enter 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+/* Upload transition — status fades in */
+@keyframes upload-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(2px) brightness(1.5);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(0) brightness(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0) brightness(1);
+  }
+}
+.upload-entering {
+  animation: upload-enter 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 /* Station label */
 .station-label {
   font-family: var(--font-orbitron);
